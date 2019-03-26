@@ -29,7 +29,7 @@ class AdvancedHtmlBase{
   public $is_text = false;
 
   public function text(){ return $this->node->nodeValue; }
-  public function html(){ return $this->doc->dom->saveHTML($this->node); }
+  public function html(){ return $this->doc->dom->saveXML($this->node); }
   public function __toString(){ return $this->html(); }
 
   public function remove(){
