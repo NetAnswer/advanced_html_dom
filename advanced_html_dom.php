@@ -800,11 +800,21 @@ class CSS{
   public function to_s(){ return $this->text; }
 }
 
-function str_get_html($html){ return new AdvancedHtmlDom($html); }
-function file_get_html($url){ return str_get_html(file_get_contents($url)); }
+if (!function_exists('str_get_html') {
+	function str_get_html($html){ return new AdvancedHtmlDom($html); }
+}
 
-function str_get_xml($html){ return new AdvancedHtmlDom($html, true); }
-function file_get_xml($url){ return str_get_xml(file_get_contents($url)); }
+if (!function_exists('file_get_html') {
+	function file_get_html($url){ return str_get_html(file_get_contents($url)); }
+}
+
+if (!function_exists('str_get_xml') {
+	function str_get_xml($html){ return new AdvancedHtmlDom($html, true); }
+}
+    
+if (!function_exists('file_get_xml') {
+	function file_get_xml($url){ return str_get_xml(file_get_contents($url)); }
+}
 }
 
 ?>
